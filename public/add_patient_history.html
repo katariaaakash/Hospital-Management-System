@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Patient</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/chatstyle.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="javascripts/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="margin-top: 20%" class="containeradd container col-lg-6 col-lg-offset-3">
+    <input type="text" id="name" class="form-control" placeholder="Name"><br>
+    <input type="text" id="disname" class="form-control" placeholder="diseasename"><br>
+    <button id="add_patient" class="btn btn-primary col-lg-4 col-lg-offset-4">Add</button>
+</div>
+<script>
+    $(function () {
+        $('#add_patient').click(function () {
+            var name = $('#name').val().toString();
+            var disease = $('#disname').val().toString();
+            var obj = {
+                name: name,
+                diseasename: disease
+            }
+            $.post('/addpatienthistory', {obj: obj}, function (data) {
+                if(data.added === true){
+                    window.open('http://localhost:5000/main_page.html', '_self');
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Patient</title>
+    <title>Update Patient Info</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/chatstyle.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="javascripts/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="margin-top: 10%" class="containeradd container col-lg-6 col-lg-offset-3">
+    <input type="text" id="name_search" class="form-control" placeholder="Name of the patient to be Viewed"><br>
+    <button id="view_patient" class="btn btn-primary col-lg-4 col-lg-offset-4">View</button><br><br>
+    <h2 id="pn" class="modal-header"></h2><br>
+    <h2 id="dn" class="modal-header"></h2><br>
+    <h2 id="t" class="modal-header"></h2><br>
+    <button id="home" class="btn btn-primary col-lg-4 col-lg-offset-4">Home</button><br>
+</div>
+<script>
+    $(function () {
+        $('#view_patient').click(function () {
+            var oldname = $('#name_search').val().toString();
+            var obj = {
+                oldname: oldname
+            }
+            $.post('/va', {obj: obj}, function (data) {
+                if(data.added === true){
+                    console.log(data);
+                    $('#pn').text(data.data.pn.toString());
+                    $('#dn').text(data.data.dn.toString());
+                    $('#t').text(data.data.t.toString());
+                }
+            })
+        })
+        $('#home').click(function () {
+            window.open('http://localhost:5000/main_page.html', '_self');
+        })
+    })
+</script>
+</body>
+</html>

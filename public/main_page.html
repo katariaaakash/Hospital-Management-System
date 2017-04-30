@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="javascripts/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="margin-top: 17%" class="container col-lg-4 col-lg-offset-4">
+    <button id="pd" class="btn btn-primary col-lg-12"> Maintain Patient Detail</button><br><br>
+    <button id="pm" class="btn btn-primary col-lg-12">Maintain patient medical history</button><br><br>
+    <button id="ma" class="btn btn-primary col-lg-12"> Maintain appointment</button><br><br>
+    <button id="md" class="btn btn-primary col-lg-12">Maintain Doctors</button><br><br>
+    <button id="mp" class="btn btn-primary col-lg-12">Maintain Payments</button>
+</div>
+<script>
+    $(function () {
+        $('#pd').click(function () {
+            console.log("clicked");
+            window.open('http://localhost:5000/maintain_patient_info.html', '_self')
+        })
+
+        $('#md').click(function () {
+            console.log("clicked");
+            window.open('http://localhost:5000/maintain_doctor_info.html', '_self')
+        })
+
+        $('#ma').click(function () {
+            console.log("clicked");
+            window.open('http://localhost:5000/maintain_appintment.html', '_self')
+        })
+
+        $('#pm').click(function () {
+            console.log("clicked");
+            window.open('http://localhost:5000/maintain_patient_history.html', '_self')
+        })
+
+        $('#mp').click(function () {
+            console.log("clicked");
+            window.open('http://localhost:5000/mp.html', '_self')
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="javascripts/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Maintian Patient Info</title>
+</head>
+<body>
+<div id="credentials" class="col-lg-offset-4 col-lg-4 container">
+    <button id="add_patient" class="btn btn-primary col-lg-6 col-lg-offset-3">Add</button><br><br>
+    <button id="update" class="btn btn-primary col-lg-6 col-lg-offset-3">Update</button><br><br>
+    <button id="view" class="btn btn-primary col-lg-6 col-lg-offset-3">View</button>
+</div>
+<script>
+    $(function () {
+        $('#add_patient').click(function () {
+            window.open('http://localhost:5000/paa.html', '_self')
+        })
+        $('#update').click(function () {
+            window.open('http://localhost:5000/puu.html', '_self')
+        })
+        $('#view').click(function () {
+            window.open('http://localhost:5000/v.html', '_self')
+        })
+    })
+</script>
+</body>
+</html>

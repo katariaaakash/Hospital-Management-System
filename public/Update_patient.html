@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Patient Info</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/chatstyle.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="javascripts/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="javascripts/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div style="margin-top: 12%" class="containeradd container col-lg-6 col-lg-offset-3">
+    <input type="text" id="old_name" class="form-control" placeholder="Name of the patient to be updated"><br><br>
+    <input type="text" id="name" class="form-control" placeholder="New Name"><br>
+    <input type="text" id="age" class="form-control" placeholder="New Age"><br>
+    <input type="text" id="phn" class="form-control" placeholder="New Contact No."><br>
+    <input type="text" id="address" class="form-control" placeholder="New Address"><br>
+    <input type="text" id="gender" class="form-control" placeholder="New Gender"><br>
+    <input type="text" id="bloodgroup" class="form-control" placeholder="New Blood Group"><br>
+    <button id="update_patient" class="btn btn-primary col-lg-4 col-lg-offset-4">Update</button>
+</div>
+<script>
+    $(function () {
+        $('#update_patient').click(function () {
+            var oldname = $('#old_name').val().toString();
+            var name = $('#name').val().toString();
+            var age = $('#age').val().toString();
+            var phn = $('#phn').val().toString();
+            var address = $('#address').val().toString();var name = $('#name').val().toString();
+            var gender = $('#gender').val().toString();
+            var bg = $('#bloodgroup').val().toString();
+            var obj = {
+                oldname: oldname,
+                name: name,
+                age: age,
+                phn: phn,
+                address: address,
+                gender: gender,
+                bg: bg
+            }
+            $.post('/updatepatient', {obj: obj}, function (data) {
+                if(data.added === true){
+                    window.open('http://localhost:5000/main_page.html', '_self');
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
